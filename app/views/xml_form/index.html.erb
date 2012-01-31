@@ -1,0 +1,14 @@
+﻿<h1>XML整形</h1>
+<%= form_tag({:action => "forming_xml"}, :id => "form_xml", :remote => true) do %>
+  <div class="field">
+    <%= text_area_tag :xml_origin %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "xml整形"%>
+  </div>
+<% end %>
+<div id=result>
+  <textarea id="formed_xml"></textarea>
+</div>
+<div id=status>
+</div>
