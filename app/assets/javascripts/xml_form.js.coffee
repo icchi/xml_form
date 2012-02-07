@@ -5,7 +5,6 @@ $(($)->
       $('#status').append('<div>解析完了！</div>')
     )
     .live("ajax:beforeSend", (xhr)->
-      localStorage.setItem('xml_form_key', $('#formed_xml'))
       $('#status').empty()
       $('#status').append('<div><img alt="loding" height="15" src="../images/loding.gif" width="15" />Loading...</div>')
     )
