@@ -6,12 +6,14 @@ class XmlFormController < ApplicationController
 
   def forming_xml
     view_data = ""
+    format_is_sucess = false
     begin
       xml_str = params[:xml_origin]
       doc = REXML::Document.new(xml_str)
       formatter = REXML::Formatters::Pretty.new
       formatter.write(doc.root, view_data)
-    rescue => ex
+      format_is_sucess = true
+    rescue Exception => ex
       # ó·äOèàóù
       p "******************************"
       p "error"
@@ -21,7 +23,8 @@ class XmlFormController < ApplicationController
       p "******************************"
       view_data = ""
     end
-    render :json => {:formed_xml => view_data}
+    p format_is_sucess
+    render :json => {:formed_xml => view_data, :sucess => format_is_sucess.to_s}
 
   end
 
